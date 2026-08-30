@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+:root {
+  font-family: Poppins;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+}
+
+*, ::after, ::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  min-width: 320px;
+  padding: 0;
+}
+
+/* ── Remove Video Black Borders Completely ──────────────────────── */
+
+/* global.css-ში არსებული video { max-width: 100%; } წესის გადაფარვა */
+/* ── 1. ქარდის ჩარჩო: მოვაშოროთ შავი ფონი და ფიქსირებული სიმაღლეები ── */
+.card__frame {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;           /* 👈 არანაირი ფიქსირებული სიმაღლე */
+  aspect-ratio: unset !important;    /* 👈 გავაუქმოთ aspect-ratio, თუ ეწერა */
+  background: transparent !important; /* 👈 შავი ფონის გაქრობა */
+  border-radius: var(--radius-card, 12px);
+  overflow: hidden;
+}
+
+/* ── 2. მედია: მიჰყვეს ფოტოს/ვიდეოს თავის ბუნებრივ ზომას ── */
+.card__media {
+  position: static !important;        /* 👈 მოვხსნათ absolute */
+  width: 100% !important;
+  height: auto !important;           /* 👈 ვიდეო იღებს თავის ზუსტ პროპორციას შავი ზოლების გარეშე */
+  display: block !important;
+  object-fit: fill !important;
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+}
+
+/* ── 3. ტექსტების დაშორებები (სათაურები რომ ერთმანეთს არ მიეწებოს) ── */
+.section-heading__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;                          /* 👈 ინგლისურ და ქართულ სათაურს შორის დაშორება */
+}
+
+.card__meta {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.card__title {
+  margin-top: 6px;
+}
+
+
+/* ── GLOBAL OVERRIDE: REMOVE ALL BLACK BORDERS ────────────────── */
+
+/* 1. გლობალური ვიდეო/სურათის წესების გაუქმება */
+main video,
+main img,
+.card video,
+.card img,
+.card__media {
+  width: 100% !important;
+  height: auto !important;
+  min-height: unset !important;
+  max-height: unset !important;
+  object-fit: cover !important;
+  display: block !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* 2. კონტეინერიდან შავი ფონის და ფიქსირებული სიმაღლის ამოღება */
+.card__frame,
+.card__frame * {
+  background: transparent !important;
+  background-color: transparent !important;
+  aspect-ratio: unset !important;
+  height: auto !important;
+}
+
+/* 3. სათაურების მიჯრის გასწორება (Animationsანიმაციები) */
+.section-heading__title {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+}
+
+.section-heading__title-ka {
+  margin-left: 8px !important;
+}
+
+video {
+   border: 0 !important;
+}

@@ -1,0 +1,91 @@
+.hero {
+  padding: clamp(64px, 14vh, 140px) 0 clamp(48px, 8vh, 96px);
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.hero__eyebrow {
+  font-size: 0.74rem;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-on-paper-muted);
+  font-weight: 500;
+  margin-bottom: clamp(20px, 4vh, 40px);
+}
+
+.hero__name {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: clamp(8px, 2vh, 20px);
+}
+
+.hero__name-en {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.hero__name-ka {
+  font-family: var(--font-body-ka);
+  font-weight: 400;
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  color: var(--text-on-paper-muted);
+}
+
+.hero__word-block {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: clamp(18px, 3vw, 36px);
+  row-gap: 4px;
+  margin-bottom: clamp(28px, 6vh, 56px);
+}
+
+.hero__word {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(4.2rem, 16vw, 11.5rem);
+  line-height: 0.9;
+  color: var(--red);
+  letter-spacing: -0.01em;
+}
+
+.hero__word-ka {
+  font-family: var(--font-display-ka);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 5vw, 3.1rem);
+  color: var(--gold);
+}
+
+.hero__foot {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: 640px;
+}
+
+.hero__rule {
+  width: 64px;
+  height: 1px;
+  background: var(--ink);
+  flex-shrink: 0;
+}
+
+.hero__note {
+  font-size: 0.94rem;
+  color: var(--text-on-paper-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 560px) {
+  .hero__foot {
+    gap: 16px;
+  }
+  .hero__rule {
+    width: 32px;
+  }
+}

@@ -1,0 +1,219 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(var(--paper-rgb), 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+
+.nav--scrolled {
+  border-bottom-color: rgba(var(--ink-rgb), 0.12);
+}
+
+.nav__inner {
+  height: var(--nav-height, 70px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+}
+
+/* ლოგო / სახელი (გაზრდილი ზომა) */
+.nav__brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  gap: 2px;
+  text-decoration: none;
+}
+
+.nav__brand-en {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.15rem; /* გაიზარდა */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink, #ffffff);
+}
+
+.nav__brand-ka {
+  font-size: 0.8rem;
+  color: var(--text-on-paper-muted, #888888);
+}
+
+/* 🎯 ცენტრალური PORTFOLIO ტექსტი */
+.nav__center-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-on-paper-muted, #888888);
+  pointer-events: none;
+}
+
+/* ნავიგაციის ბმულები */
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav__link {
+  position: relative;
+  font-size: 0.82rem;
+  letter-spacing: var(--tracking-label, 0.05em);
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--text-on-paper-muted, #888888);
+  padding: 6px 0;
+  text-decoration: none;
+  transition: color var(--dur-fast, 0.2s) var(--ease-out, ease);
+}
+
+/* Underline ეფექტი */
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--red, #ff4757);
+  transition: width var(--dur-med, 0.3s) var(--ease-out, ease);
+}
+
+.nav__link:hover,
+.nav__link.active,
+.nav__link--active {
+  color: var(--red, #ff4757) !important;
+}
+
+.nav__link:hover::after,
+.nav__link.active::after,
+.nav__link--active::after {
+  width: 100%;
+}
+
+/* Mobile Toggle & Mobile Layout */
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav__toggle span {
+  display: block;
+  height: 1px;
+  background: var(--ink, #fff);
+  transition: transform var(--dur-fast, 0.2s) var(--ease-out, ease), opacity var(--dur-fast, 0.2s) var(--ease-out, ease);
+}
+
+.nav__toggle--open span:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+.nav__toggle--open span:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+.nav__mobile {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .nav__links {
+    display: none;
+  }
+
+  .nav__center-title {
+    display: none; /* მობილურზე იმალება, რომ ადგილი არ გატენოს */
+  }
+
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav__brand-en {
+    font-size: 0.95rem;
+  }
+
+  .nav__mobile {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: var(--nav-height, 70px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--ink, #111);
+    padding: 28px var(--page-margin, 20px);
+    gap: 4px;
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--dur-med, 0.3s) var(--ease-out, ease), transform var(--dur-med, 0.3s) var(--ease-out, ease);
+  }
+
+  .nav__mobile--open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav__mobile-link {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(var(--paper-rgb), 0.14);
+    color: var(--text-on-ink, #fff);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity var(--dur-med, 0.3s) var(--ease-out, ease), transform var(--dur-med, 0.3s) var(--ease-out, ease), color var(--dur-fast, 0.2s) var(--ease-out, ease);
+  }
+
+  .nav__mobile--open .nav__mobile-link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav__mobile-link-ka {
+    font-size: 0.85rem;
+    color: var(--text-on-ink-muted, #888);
+  }
+
+  .nav__mobile-link--active {
+    color: var(--red, #ff4757);
+  }
+}
+
+.nav__brand-en {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff !important; /* 👈 თეთრი ფერი */
+}
+
+.nav__brand-ka {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6) !important; /* 👈 ოდნავ ღია თეთრი */
+}

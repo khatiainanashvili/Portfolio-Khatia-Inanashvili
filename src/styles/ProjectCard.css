@@ -1,0 +1,192 @@
+.card {
+  break-inside: avoid;
+  margin-bottom: var(--grid-gap);
+  cursor: default;
+}
+
+.card__frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  border: 0 !important;
+  background: rgba(var(--ink-rgb), 0.05);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-out);
+}
+
+.card__frame:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+.section--dark .card__frame {
+  box-shadow: var(--shadow-card-dark);
+}
+
+.section--dark .card__frame:hover {
+  box-shadow: var(--shadow-card-dark-hover);
+}
+
+.card__media {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: scale(1);
+  transition: transform var(--dur-slow) var(--ease-out);
+  object-fit: cover;
+}
+
+.card__frame:hover .card__media {
+  transform: scale(1.045);
+}
+
+.card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(var(--ink-rgb), 0) 55%, rgba(var(--ink-rgb), 0.62) 100%);
+  opacity: 0;
+  transition: opacity var(--dur-med) var(--ease-out);
+}
+
+.card__frame:hover .card__overlay {
+  opacity: 1;
+}
+
+.card__kind {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px 5px 8px;
+  background: rgba(var(--ink-rgb), 0.55);
+  color: var(--paper);
+  font-size: 0.64rem;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.card__meta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 14px 16px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-out);
+}
+
+.card__frame:hover .card__meta,
+.card__frame:focus-within .card__meta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card__software,
+.card__date {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper);
+  font-weight: 500;
+}
+
+.card__software {
+  padding-right: 10px;
+}
+
+.card__date {
+  color: rgba(var(--paper-rgb), 0.78);
+}
+
+.card__title {
+  margin-top: 10px;
+  padding: 0 2px;
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 400;
+  color: var(--text-on-paper-muted);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.card:hover .card__title {
+  color: var(--ink);
+}
+
+/* Dark-section variant (used on the Animations page) */
+.section--dark .card__title {
+  color: var(--text-on-ink-muted);
+}
+
+.section--dark .card:hover .card__title {
+  color: var(--text-on-ink);
+}
+
+/* ქარდის ჩარჩო */
+.card__frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--paper); /* ან var(--ink) მუქ თემაში */
+  box-shadow: var(--shadow-card);
+  transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out);
+  width: 100%;
+}
+
+/* ── Fix Video Black Borders Once and For All ────────────────────── */
+
+.card__frame {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: var(--radius-card);
+  width: 100%;
+  aspect-ratio: 4 / 5; /* აძლევს ქარდს ფიქსირებულ ზომას */
+  background: transparent !important;
+}
+
+/* ფოტოს და ვიდეოს Absolute პოზიციონირება */
+.card__media--img,
+.card__media--video {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; /* ჭრის შავ ზოლებს */
+  object-position: center !important;
+  border: none !important;
+}
+
+/* 1. ჩარჩო: აძლევს ფიქსირებულ პროპორციას, რომ ზომამ არ იხტუნაოს */
+.card__frame {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: var(--radius-card);
+  width: 100%;
+  aspect-ratio: 4 / 5; /* 👈 ქარდის ზომა აღარასდროს შეიცვლება */
+  background: transparent !important;
+}
+
+/* 2. მედია: Absolute პოზიციონირება ჭრის შავ ჩარჩოებს */
+.card__media {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; /* 👈 სრულად ფარავს ჩარჩოს შავი არეების გარეშე */
+  object-position: center !important;
+  border: none !important;
+  outline: none !important;
+}
+
+video {
+   border: 0 !important;
+}

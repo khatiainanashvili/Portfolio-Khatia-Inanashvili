@@ -1,0 +1,135 @@
+/* ── Page header ──────────────────────────────────────────────────── */
+.page-header {
+  padding: clamp(56px, 12vh, 108px) 0 clamp(32px, 6vh, 56px);
+  background: var(--paper);
+  border-bottom: 1px solid rgba(var(--ink-rgb), 0.1);
+}
+
+.page-header__eyebrow {
+  color: var(--red);
+  margin-bottom: 14px;
+}
+
+.page-header__title {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
+}
+
+.page-header__title-ka {
+  font-family: var(--font-display-ka);
+  font-weight: 400;
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+  color: var(--text-on-paper-muted);
+}
+
+.page-header__count {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-on-paper-muted);
+}
+
+/* ── Sections shared with Home ───────────────────────────────────── */
+.section {
+  padding: clamp(48px, 8vh, 96px) 0 clamp(72px, 10vh, 120px);
+}
+
+.section--light {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* ── Masonry grid ─────────────────────────────────────────────────── */
+.masonry {
+  --grid-gap: 22px;
+  column-count: 1;
+  column-gap: var(--grid-gap);
+}
+
+@media (min-width: 640px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 1440px) {
+  .masonry {
+    column-count: 4;
+  }
+}
+
+/* ── Load more control ───────────────────────────────────────────── */
+.load-more-row {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(36px, 6vh, 64px);
+}
+
+.load-more {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: none;
+  border: none;
+  padding: 10px 4px;
+}
+
+.load-more__mark {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  flex-shrink: 0;
+  transition: transform var(--dur-med) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+
+.load-more__mark span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  transition: transform var(--dur-med) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+
+.load-more__mark span:first-child {
+  width: 12px;
+  height: 1px;
+  transform: translate(-50%, -50%);
+}
+
+.load-more__mark span:last-child {
+  width: 1px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+}
+
+.load-more:hover .load-more__mark {
+  transform: rotate(90deg);
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.load-more:hover .load-more__mark span {
+  background: var(--paper);
+}
+
+.load-more__label {
+  font-size: 0.8rem;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  font-weight: 500;
+}
