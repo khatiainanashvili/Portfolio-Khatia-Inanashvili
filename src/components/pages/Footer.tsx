@@ -41,7 +41,8 @@ export default function Footer({ variant = 'light' }: FooterProps) {
           
         </div>
 
-        <p className="footer__meta">© {year} — Portfolio for Art Academy review</p>
+        <p className="footer__meta">© {year} — Portfolio for Tbilisi State Academy of Arts
+ review</p>
       </div>
     </footer>
   )
