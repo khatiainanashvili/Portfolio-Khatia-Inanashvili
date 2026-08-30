@@ -10,6 +10,7 @@ import '../../styles/Home.css'
 
 const INITIAL_COUNT = 20
 
+
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 

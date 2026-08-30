@@ -149,3 +149,5 @@ export interface MainComponentProps {
 export interface HistoryProps {
     searchItems: string[];
   }
+  
+export type Project = ImageDataInterface;

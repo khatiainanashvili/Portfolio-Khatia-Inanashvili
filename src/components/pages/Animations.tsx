@@ -5,7 +5,7 @@ import Footer from './Footer'
 import LightboxModal from '../../components/pages/LightBoxModal'
 import useReveal from '../../hooks/useReveal'
 import { getByCategory } from '../../data/projects'
-import type { Project } from './Home'
+import type { Project } from '../../interfaces/interfaces'
 import '../../styles/Animations.css'
 
 
