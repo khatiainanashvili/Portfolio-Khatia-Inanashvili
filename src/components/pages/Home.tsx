@@ -5,7 +5,6 @@ import Footer from './Footer'
 import LightboxModal from '../pages/LightBoxModal'
 import useReveal from '../../hooks/useReveal'
 import { getByCategory } from '../../data/projects'
-import type { Project } from '../../types/project'
 import '../../styles/Home.css'
 
 const INITIAL_COUNT = 20

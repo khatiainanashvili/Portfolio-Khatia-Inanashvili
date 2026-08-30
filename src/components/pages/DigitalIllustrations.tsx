@@ -4,7 +4,6 @@ import ProjectCard from './ProjectCard'
 import Footer from './Footer'
 import useReveal from '../../hooks/useReveal'
 import { getByCategory } from '../../data/projects'
-import type { Project } from './Home'
 import '../../styles/DigitalIllustrations.css'
 
 const INITIAL_COUNT = 6
