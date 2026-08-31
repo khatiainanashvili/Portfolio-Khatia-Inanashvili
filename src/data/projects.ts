@@ -67,26 +67,24 @@ import ill33 from '../assets/illustrations/q9.png'
 
 
 // ---- Animation placeholders (replace with your own clips) ---------------
-import anim01 from '../../public/animations/01.mp4'
 import anim01Poster from '../assets/animations/01.png'
-import anim02 from '../assets/animations/02.mp4'
 import anim02Poster from '../assets/animations/02.png'
-import anim03 from '../assets/animations/03.mp4'
 import anim03Poster from '../assets/animations/03.jpg'
-import anim04 from '../assets/animations/04.mp4'
+
+
 import anim04Poster from '../assets/animations/04.png'
-import anim05 from '../assets/animations/05.mp4'
+
 import anim05Poster from '../assets/animations/05.png'
-import anim06 from '../assets/animations/06.mp4'
+
 import anim06Poster from '../assets/animations/06.jpg'
 
-import anim07 from '../assets/animations/7.mp4'
+
 import anim07Poster from '../assets/animations/7.png'
-import anim08 from '../assets/animations/08.mp4'
+
 import anim08Poster from '../assets/animations/08.jpg'
-import anim09 from '../assets/animations/09.mp4'
+
 import anim09Poster from '../assets/animations/09.jpg'
-import anim10 from '../assets/animations/10.mp4'
+
 import anim10Poster from '../assets/animations/10.jpg'
 
 export const projects: Project[] = [
@@ -446,7 +444,7 @@ export const projects: Project[] = [
     id: 'anim-01',
     title: 'AnglerFish',
     category: 'animation',
-    video: anim01,
+    video: '/animations/01.mp4',
     poster: anim01Poster,
     software: 'Adobe After Effects, Adobe Illustrator',
     date: '2025',
@@ -457,7 +455,7 @@ export const projects: Project[] = [
     id: 'anim-02',
     title: 'Jellyfish',
     category: 'animation',
-    video: anim02,
+    video: 'animations/02.mp4',
     poster: anim02Poster,
     software: 'Adobe After Effects, Adobe Illustrator',
     date: '2025',
@@ -468,7 +466,7 @@ export const projects: Project[] = [
     id: 'anim-03',
     title: 'Butterfly',
     category: 'animation',
-    video: anim03,
+    video: '/animations/03.mp4',
     poster: anim03Poster,
     software: 'Adobe After Effects, Adobe Illustrator',
     date: '2025',
@@ -479,7 +477,7 @@ export const projects: Project[] = [
     id: 'anim-04',
     title: 'Frog',
     category: 'animation',
-    video: anim04,
+    video: '/animations/04.mp4',
     poster: anim04Poster,
     software: 'Adobe After Effects, Adobe Illustrator',
     date: '2024',
@@ -490,7 +488,7 @@ export const projects: Project[] = [
     id: 'anim-05',
     title: 'Lazy Butterfly',
     category: 'animation',
-    video: anim05,
+    video: '/animations/05.mp4',
     poster: anim05Poster,
     software: 'Adobe After Effects, Adobe Illustrator',
     date: '2024',
@@ -501,7 +499,7 @@ export const projects: Project[] = [
     id: 'anim-06',
     title: 'Moths',
     category: 'animation',
-    video: anim06,
+    video: '/animations/06.mp4',
     poster: anim06Poster,
     software: 'Adobe After Effects, Adobe Illustrator',
     date: '2023',
@@ -513,7 +511,7 @@ export const projects: Project[] = [
     id: 'anim-07',
     title: 'Bloom',
     category: 'animation',
-    video: anim07,
+    video: '/animations/7.mp4',
     poster: anim07Poster,
     software: 'Adobe After Effects',
     date: '2023',
@@ -525,7 +523,7 @@ export const projects: Project[] = [
     id: 'anim-08',
     title: 'Wicked Witch',
     category: 'animation',
-    video: anim08,
+    video: '/animations/08.mp4',
     poster: anim08Poster,
     software: 'Procreate',
     date: '2023',
@@ -536,7 +534,7 @@ export const projects: Project[] = [
     id: 'anim-09',
     title: 'Wicked Witch',
     category: 'animation',
-    video: anim09,
+    video: '/animations/09.mp4',
     poster: anim09Poster,
     software: 'Procreate',
     date: '2023',
@@ -548,7 +546,7 @@ export const projects: Project[] = [
     id: 'anim-10',
     title: 'Wicked Witch',
     category: 'animation',
-    video: anim10,
+    video: '/animations/10.mp4',
     poster: anim10Poster,
     software: 'Procreate',
     date: '2023',
