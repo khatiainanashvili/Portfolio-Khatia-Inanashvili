@@ -11,9 +11,12 @@ export default function ProjectCard({ project, onOpenLightbox }: ProjectCardProp
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const [isMuted, setIsMuted] = useState<boolean>(true)
 
-  const videoSrc = project.videoUrl || project.video || project.mediaUrl || project.src
+  // იღებს ვიდეოს მისამართს და ამატებს #t=0.001-ს iOS-ისთვის
+  const rawVideoSrc = project.videoUrl || project.video || project.mediaUrl || project.src
+  const videoSrc = rawVideoSrc ? `${rawVideoSrc}#t=0.001` : ''
+  
   const imageSrc = project.imageUrl || project.image || project.posterUrl || project.mediaUrl
-  const isVideo = Boolean(project.type === 'video' || (videoSrc && videoSrc.endsWith('.mp4')))
+  const isVideo = Boolean(project.type === 'video' || (rawVideoSrc && rawVideoSrc.endsWith('.mp4')))
 
   const handleMouseEnter = () => {
     if (isVideo && videoRef.current) {
@@ -56,7 +59,7 @@ export default function ProjectCard({ project, onOpenLightbox }: ProjectCardProp
             muted
             playsInline
             webkit-playsinline="true"
-            preload="auto"
+            preload="metadata"
             className="card-item__media"
           />
         ) : (
@@ -67,7 +70,7 @@ export default function ProjectCard({ project, onOpenLightbox }: ProjectCardProp
           />
         )}
 
-        {/* Play Icon - ჩანს მხოლოს ვიდეოზე, როცა არ უკრავს */}
+        {/* Play Icon - ჩანს მხოლოდ ვიდეოზე, როცა არ უკრავს */}
         {isVideo && !isPlaying && (
           <div className="card-item__play-badge">
             <svg viewBox="0 0 24 24" fill="currentColor">
