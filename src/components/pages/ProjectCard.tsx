@@ -33,7 +33,10 @@ export default function ProjectCard({ project, onOpenLightbox }: ProjectCardProp
 
   const toggleSound = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation()
-    setIsMuted((prev) => !prev)
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted
+      setIsMuted(!isMuted)
+    }
   }
 
   return (
@@ -50,9 +53,10 @@ export default function ProjectCard({ project, onOpenLightbox }: ProjectCardProp
             src={videoSrc}
             poster={imageSrc}
             loop
-            muted={isMuted}
+            muted
             playsInline
-            preload="metadata"
+            webkit-playsinline="true"
+            preload="auto"
             className="card-item__media"
           />
         ) : (
@@ -75,20 +79,18 @@ export default function ProjectCard({ project, onOpenLightbox }: ProjectCardProp
         {/* ხმის ღილაკი */}
         {isVideo && isPlaying && (
           <button className="card-item__sound-btn" onClick={toggleSound} title="Toggle Sound">
-  {isMuted ? (
-    /* Mute Icon (SVG) */
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="1" y1="1" x2="23" y2="23"></line>
-      <path d="M9 9v6a3 3 0 0 0 5.12 2.12M15 9.34V4a2 2 0 0 0-3.54-1.3L7.5 6H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2.7l1.3 1.04"></path>
-    </svg>
-  ) : (
-    /* Volume High Icon (SVG) */
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-    </svg>
-  )}
-</button>
+            {isMuted ? (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+                <path d="M9 9v6a3 3 0 0 0 5.12 2.12M15 9.34V4a2 2 0 0 0-3.54-1.3L7.5 6H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2.7l1.3 1.04"></path>
+              </svg>
+            ) : (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+            )}
+          </button>
         )}
       </div>
 
