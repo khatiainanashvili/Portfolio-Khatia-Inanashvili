@@ -67,7 +67,7 @@ import ill33 from '../assets/illustrations/q9.png'
 
 
 // ---- Animation placeholders (replace with your own clips) ---------------
-import anim01 from '../assets/animations/01.mp4'
+import anim01 from '../../public/animations/01.mp4'
 import anim01Poster from '../assets/animations/01.png'
 import anim02 from '../assets/animations/02.mp4'
 import anim02Poster from '../assets/animations/02.png'
