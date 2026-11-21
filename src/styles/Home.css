@@ -203,7 +203,7 @@
 
 .load-more { 
   color: blue !important;
-  border: 1px, blue;
+  border: solid 1px blue;
   border-radius: 30%;
   padding: 1ram;
   }
