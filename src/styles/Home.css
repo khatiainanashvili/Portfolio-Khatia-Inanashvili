@@ -201,5 +201,6 @@
 }
 
 
-.load-more { color: blue;
+.load-more { color: blue !important;
+  }
 }
